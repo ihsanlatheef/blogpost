@@ -1,0 +1,24 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog Posts</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <h1>All Blog Posts</h1>
+    <a href="/new">Create New Post</a>
+    <ul>
+      <% if(posts.length === 0) { %>
+      <li>No posts found.</li>
+      <% } else { %> <% posts.forEach(post => { %>
+      <li>
+        <h2><%= post.title %></h2>
+        <p><%= post.content %></p>
+        <a href="/edit/<%= post._id %>">Edit</a>
+        <a href="/delete/<%= post._id %>">Delete</a>
+      </li>
+      <% }) %> <% } %>
+    </ul>
+  </body>
+</html>

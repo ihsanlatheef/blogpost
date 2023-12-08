@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  nodejs_app:
+    container_name: nodejs-app
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_URL=mongodb://mongo:27017/myBlogApp
+    depends_on:
+      - mongo
+    networks:
+      - app-network
+
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mongo-data:
