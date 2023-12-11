@@ -1,4 +1,3 @@
-<!-- views/new.ejs -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,10 +5,10 @@
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
-    <h1>Create a New Post</h1>
+    <div class="form-container">
+      <h1>Create a New Post</h1>
 
-    <form action="/" method="POST">
-      <div class="form-container">
+      <form action="/" method="POST">
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" required /><br />
 
@@ -17,9 +16,9 @@
         <textarea id="content" name="content" required></textarea><br />
 
         <button type="submit">Submit</button>
-      </div>
-    </form>
+      </form>
 
-    <a href="/">Back to Posts</a>
+      <a href="/" class="back-link">Back to Posts</a>
+    </div>
   </body>
 </html>
